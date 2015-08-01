@@ -1,11 +1,7 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links, Auth) {
+.controller('LinksController', function ($scope, Links) {
   // Your code here
-
-  if(!Auth.isAuth()) {
-    $location.path('/signin').replace();
-  }
 
   $scope.data = {};
 

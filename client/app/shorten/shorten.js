@@ -6,12 +6,8 @@ var isValidUrl = function(url) {
 
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links, Auth) {
+.controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
-  
-  if(!Auth.isAuth()) {
-    $location.path('/signin').replace();
-  }
 
   $scope.link = {
     url: ''
