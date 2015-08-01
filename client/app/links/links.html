@@ -2,11 +2,13 @@
   <!-- Your html here -->
 
   <h2>Links</h2>
-    <div ng-repeat="link in data.links">
-      <h3> {{ link.title }} </h3>
-      <b> {{ link.url }} </b>
-      <br>
-      <a href="{{ link.base_url+'/api/links/'+link.code }}">{{ link.base_url+'/api/links/'+link.code }}</a>
+  <label>Search: <input ng-model="searchText"></label>
+    <div ng-repeat="link in data.links | orderBy: '-visits' | filter: {url: searchText} ">
+      <div><h3> {{ link.title }} </h3></div>
+      <div><b> {{ link.url  }} </b></div>
+      <div><a href="{{ link.base_url+'/api/links/'+link.code }}">{{ link.base_url+'/api/links/'+link.code }}</a>
+      {{ link.visits }}
+      </div>
       <!-- {{link}} -->
     </div>
 

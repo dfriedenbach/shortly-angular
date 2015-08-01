@@ -24,6 +24,12 @@ angular.module('shortly', [
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
+    .when('/logout', {
+      redirectTo: function(){
+        window.localStorage.removeItem('com.shortly');
+        return '/signin';
+      }
+    })
     .otherwise('/links');
 
     // We add our $httpInterceptor into the array
