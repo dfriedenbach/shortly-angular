@@ -1,7 +1,36 @@
+//Helper functions for communication with backend
+
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+
+  //function that returns HTTP request
+  var getLinks = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  };
+
+  var addLink = function(url) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  };
+
+  return {
+    getLinks: getLinks,
+    addLink: addLink
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
