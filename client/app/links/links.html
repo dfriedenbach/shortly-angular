@@ -3,7 +3,11 @@
 
   <h2>Links</h2>
     <div ng-repeat="link in data.links">
-      {{link}}
+      <h3> {{ link.title }} </h3>
+      <b> {{ link.url }} </b>
+      <br>
+      <a href="{{ link.base_url+'/api/links/'+link.code }}">{{ link.base_url+'/api/links/'+link.code }}</a>
+      <!-- {{link}} -->
     </div>
 
 </div>
